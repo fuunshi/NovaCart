@@ -1,0 +1,9 @@
+#Navbar{
+    position: fixed;
+    width: 87.5rem;
+    height: 3.75rem;
+}
+
+#Navbar > nav {
+    margin-bottom: 1.13rem;
+}

@@ -1,0 +1,14 @@
+{% extends "ShopEase/base.html" %}
+
+{% block body %}
+<div class="product flex flex-wrap border-curve-2">
+    <div class="image">
+        <img src="{{ product.image }}" alt="{{ product.name }}">
+    </div>
+    <div class="des">
+        <h1>{{ product.name }}</h1>
+        <p>{{ product.description }}</p>
+        <p>{{ product.price }}$</p>
+    </div>
+</div>
+{% endblock %}

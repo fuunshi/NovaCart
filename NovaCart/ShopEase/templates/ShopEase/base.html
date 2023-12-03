@@ -1,22 +1,49 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NovaCart</title>
+    <link href="{% static 'ShopEase/css/style.css' %}" rel="stylesheet">
 
-    
 </head>
+
 <body>
     <section id="Navbar">
-        <nav>
-            <img src="logo.png" alt="Website Logo">
+        <nav class="nav-items">
+            <img src="{% static 'ShopEase/img/logo.jpg' %}" alt="Website Logo"
+                style="border-radius: 50%; height: 1rem;">
             <a href="#Home">Home</a>
-            <a href="#Shop">Categories</a>
+            <a href="/shop">Shop</a>
             <a href="#About">About</a>
             <a href="#SearchBar">Search Bar</a>
             <a href="#Login">Login</a>
         </nav>
     </section>
+    <section id="Main">
+        <br><br><br><br>
+        {% block body %}
+
+        {% endblock %}
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <!-- Footer section -->
+        <div class="footer-content">
+            <p>&copy; 2023 My eCommerce Site</p>
+            <ul class="footer-links">
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
+
 </html>

@@ -1,36 +1,77 @@
-#Navbar{
-    position: fixed;
-    width: 87.5rem;
-    height: 3.75rem;
+:root{
+    --bodybg: #1e1f23;
+    --navbg: #16181c;
+    --divbg: #17191c;
+    --hoverbg: #7287aa;
+    --border: #34373c;
+    --fontcol: #dcdcdc;
+    --shadow: #000000;
+    --linkcol: rgb(211, 106, 106);
 }
 
-#Navbar > nav {
-    margin-bottom: 1.13rem;
+@font-face {
+    font-family: jetbrains;
+    src: url(./JetBrainsMono-Medium.ttf);
 }
 
-.nav-items>a{
+*{
+    font-family: jetbrains;
+}
+
+body{
+    margin:0;
+    padding: 0;
+    background-color: var(--bodybg);
+}
+.nav{
+    background-color: var(--navbg);
+    overflow: hidden;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+  
+.nav a {
+    display: inline-block;
+    color: var(--fontcol);
+    font-size: 1em;
+    padding: 0.5em;
     text-decoration: none;
-    color: black;
+  }
+
+.nav a:hover {
+    background-color: var(--hoverbg);
+    color: var(--bodybg);
 }
 
-.nav-items{
-    display: flex;
-    justify-content: space-evenly;
+.link {
+    text-decoration: none;
+    color: var(--linkcol);
 }
 
-.flex{
-    display: flex;
+.products {
+    color: var(--fontcol);
+    text-align: center;
+    margin: 1em auto;
+    border: 1px solid var(--border);
+    border-radius: 1em;
+    box-shadow: 0 0 10px 2px var(--shadow);
+    background-color: var(--divbg);
+    max-width: 100%;
+    width: 40vw;
+}
+.products img {
+    margin-bottom: 2vh;
+    width: 30vw;
+    border-radius: 1em;
+    box-shadow: 0 0 10px 2px var(--shadow);
 }
 
-.flex-wrap{
-    flex-direction: row;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
+@media only screen and (orientation: portrait) {
+    .products {
+        width: 80vw
+    }
 
-.border-curve-2{
-    margin-left: 30%;
-    border: 2px solid black;
-    border-radius: 30%;
-    width: 40%;
+    .products img {
+        width: 60vw
+    }
 }

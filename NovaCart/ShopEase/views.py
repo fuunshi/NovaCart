@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.contrib.auth import authenticate, login, logout
 from .models import Product
 from .forms import LoginForm
 
@@ -17,15 +20,24 @@ def product(request, product_id):
         "product": product,
     })
 
-def login(request):
+def login_request(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return HttpResponseRedirect(reverse('index'))
+            else:
+                return render(request, "ShopEase/user/login.html", {
+                    'form': form,
+                    'message': 'Invalid Credentials',
+                })
     else:
         form = LoginForm()
-        
+
     return render(request, "ShopEase/user/login.html", {
         'form': form
     })

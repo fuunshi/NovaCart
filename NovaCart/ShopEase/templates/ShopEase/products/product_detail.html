@@ -2,8 +2,8 @@
 
 {% block body %}
 <div class="products">
-    <h2>{{ product.image }}</h2>
+    <h2>{{ product.name }}</h2>
     Price: ${{ product.price }} <br><br>
-    <img src="{{ product.image }}" alt="{{ product.name }}">
+    <img src="{{ product.image.url }}" alt="{{ product.name }}">
 </div>
 {% endblock %}

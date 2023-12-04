@@ -13,5 +13,5 @@ def shop(request):
 def product(request, product_id):
     product = Product.objects.get(pk=product_id)
     return render(request, "ShopEase/products/product_detail.html", {
-        "product": product
+        "product": product,
     })

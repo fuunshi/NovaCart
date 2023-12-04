@@ -25,13 +25,18 @@ body{
 }
 .nav{
     background-color: var(--navbg);
-    overflow: hidden;
     text-align: center;
     border: 1px solid var(--border);
 }
+
+.left{
+    display: flex;
+}
+.right{
+    display: flex;
+}
   
 .nav a {
-    display: inline-block;
     color: var(--fontcol);
     font-size: 1em;
     padding: 0.5em;

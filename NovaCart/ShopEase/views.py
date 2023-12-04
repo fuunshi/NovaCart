@@ -41,3 +41,15 @@ def login_request(request):
     return render(request, "ShopEase/user/login.html", {
         'form': form
     })
+
+def users(request, username):
+    return render(request, "ShopEase/user/profile.html", {
+
+    })
+
+def logout_request(request):
+    logout(request)
+    return render(request, "ShopEase/home.html" , {})
+
+def about(request):
+    return render(request, "ShopEase/misc/about.html", {})

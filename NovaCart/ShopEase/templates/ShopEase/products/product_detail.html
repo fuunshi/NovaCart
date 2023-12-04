@@ -2,8 +2,16 @@
 
 {% block body %}
 <div class="products">
-    <h2>{{ product.name }}</h2>
-    Price: ${{ product.price }} <br><br>
-    <img src="{{ product.image.url }}" alt="{{ product.name }}">
+    <div class="flex">
+        <div class="lf">
+            <img src="{{ product.image.url }}" alt="{{ product.name }}">
+        </div>
+        <div class="rf">
+            <h2>{{ product.name }}</h2>
+            <p>Price: ${{ product.price }}</p>
+            <button class="button-12" role="button">Buy</button>
+            <p>Description: {{ product.description }}</p>
+        </div>
+    </div>
 </div>
 {% endblock %}

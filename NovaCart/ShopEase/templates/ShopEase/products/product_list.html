@@ -2,9 +2,12 @@
 
 {% block body %}
 <h1>Products</h1>
-<ul>
+<div class="grid">
     {% for product in products %}
-        <li><a style="color: aliceblue;" href="/shop/{{ product.id }}">{{ product }}</a></li>
+    <div class="flex flex-column">
+        <img class="gridbox-image" src="{{ product.image.url }}">
+        <a style="color: aliceblue; text-decoration: none; height: 3em;" href="/shop/{{ product.id }}">{{ product }}</a>
+    </div>
     {% endfor %}
-</ul>
+</div>
 {% endblock %}

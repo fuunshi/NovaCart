@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
-from .models import Product
+from .models import Product, Message
+from django.contrib.auth.models import User
 from .forms import LoginForm
 
 # Create your views here.
@@ -53,3 +54,17 @@ def logout_request(request):
 
 def about(request):
     return render(request, "ShopEase/misc/about.html", {})
+
+def view_messages(request, sender_id, receiver_id):
+    sender = User.objects.get(id=sender_id)
+    receiver = User.objects.get(id=receiver_id)
+    
+    messages = Message.objects.filter(sender=sender, receiver=receiver) | Message.objects.filter(sender=receiver, receiver=sender)
+    messages = messages.order_by('timestamp')
+
+    context = {
+        'messages': messages,
+        'receiver': receiver,
+        'sender': sender
+    }
+    return render(request, 'message/message.html', context)
